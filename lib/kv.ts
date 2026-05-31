@@ -1,5 +1,10 @@
-import { kv } from '@vercel/kv'
+import { Redis } from '@upstash/redis'
 import { PredictionResponse } from './types'
+
+const kv = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+})
 
 export async function saveResponse(response: PredictionResponse): Promise<void> {
   await kv.set(`response:${response.id}`, response)
