@@ -1,5 +1,4 @@
-Bash
-cat /home/user/LION/app/page.tsx
+
 'use client'
 
 import { useState } from 'react'
